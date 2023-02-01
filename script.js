@@ -30,4 +30,6 @@ cardEl.textContent="Cards: "+firstCard+" "+secondCard;
 sumEl.textContent="Sum: "+sum;
 }
 
-
+function newCard(){
+    
+}
