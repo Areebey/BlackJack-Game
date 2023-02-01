@@ -1,0 +1,30 @@
+
+body{
+    /* background-image: url(/DALL·E\ 2023-01-28\ 12.26.53.png);
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background-color: green;
+    margin: 0;
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+h1{
+    color: goldenrod;
+    font-size: 2em;
+}
+#message-el{
+    font-style: italic;
+}
+button{
+    width: 150px;
+    color: #016f32;
+    background-color: goldenrod;
+    font-weight: bold;
+    border: none;
+    padding: 5px ;
+    border-radius: 3px;
+}
+
