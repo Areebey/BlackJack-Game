@@ -1,7 +1,7 @@
 // Blackjack Game
 let firstCard =10;
 let secondCard = 5;
-let cards=[]
+let cards=[firstCard,secondCard]
 let sum = firstCard+secondCard;
 let hasBlackJack=false
 let isAlive=true
@@ -16,8 +16,13 @@ function startGame(){
 }
 
 function renderGame(){
+
+    messageEL.textContent=message;
+// cardEl.textContent="Cards: "+firstCard+" "+secondCard; this is old one
+cardEl.textContent="Cards: "+cards[0]+" "+cards[1];
+
 if(sum <=20){
-    message="Do you want to draw a new caed";
+    message="Do you want to draw a new card";
 
 } else if (sum ===21){
     message=("Yoo ! You are The Blackjack");
@@ -26,16 +31,14 @@ if(sum <=20){
    message=("You are out of the game 😭");
    isAlive=false
 }
-messageEL.textContent=message;
-// cardEl.textContent="Cards: "+firstCard+" "+secondCard; this is old one
-cardEl.textContent="Cards: "+cards[0]+" "+cards[1];
-
 sumEl.textContent="Sum: "+sum;
 }
 
 function newCard(){
     let card=6;
     sum +=card;
+    cards.push(card);
+    console.log(cards)
    
     renderGame(sum);
 }
