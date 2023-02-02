@@ -1,26 +1,50 @@
 // Blackjack Game
-let firstCard =10;
-let secondCard = 5;
-let cards=[firstCard,secondCard]
-let sum = firstCard+secondCard;
+let cards=[]
+let sum = 0;
 let hasBlackJack=false
-let isAlive=true
+let isAlive=false
 let message=""
 
 let messageEL=document.getElementById("message-el");
 let sumEl=document.querySelector("#sum-el");
 let cardEl=document.getElementById("card-el");
 
+let player ={
+     name : "John",
+     chips : 155
+}
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
+
+
+function getRandomNumber(){
+    let randomNum=Math.floor(Math.random() * 13) +1
+    if(randomNum > 10){
+        return 10
+    }else if (randomNum === 1){
+        return 11
+    }else {
+    return randomNum
+}
+}
+
 function startGame(){
+    isAlive=true
+    let firstCard =getRandomNumber();
+    let secondCard = getRandomNumber();
+     cards=[firstCard,secondCard]
+     sum =firstCard+secondCard;
+
     renderGame()
 }
 
 function renderGame(){
 
-    messageEL.textContent=message;
-// cardEl.textContent="Cards: "+firstCard+" "+secondCard; this is old one
-cardEl.textContent="Cards: "+cards[0]+" "+cards[1];
-
+    cardEl.textContent="Cards: " 
+for(let i=0; i<cards.length; i++){
+    cardEl.textContent += cards[i]+" "
+}
+sumEl.textContent="Sum: "+sum;
 if(sum <=20){
     message="Do you want to draw a new card";
 
@@ -31,14 +55,16 @@ if(sum <=20){
    message=("You are out of the game 😭");
    isAlive=false
 }
-sumEl.textContent="Sum: "+sum;
+messageEL.textContent=message;
 }
 
 function newCard(){
-    let card=6;
+
+if(isAlive===true && hasBlackJack===false){
+    let card=getRandomNumber();
     sum +=card;
     cards.push(card);
-    console.log(cards)
-   
+    // console.log(cards)
     renderGame(sum);
+}
 }
