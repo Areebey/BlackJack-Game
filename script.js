@@ -1,6 +1,7 @@
 // Blackjack Game
 let firstCard =10;
 let secondCard = 5;
+let cards=[]
 let sum = firstCard+secondCard;
 let hasBlackJack=false
 let isAlive=true
@@ -26,7 +27,9 @@ if(sum <=20){
    isAlive=false
 }
 messageEL.textContent=message;
-cardEl.textContent="Cards: "+firstCard+" "+secondCard;
+// cardEl.textContent="Cards: "+firstCard+" "+secondCard; this is old one
+cardEl.textContent="Cards: "+cards[0]+" "+cards[1];
+
 sumEl.textContent="Sum: "+sum;
 }
 
